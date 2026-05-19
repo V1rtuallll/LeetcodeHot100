@@ -2,18 +2,17 @@ package lc234_回文链表;
 
 public class Solution {
     public boolean isPalindrome(ListNode head) {
-        boolean isOdd = false;
-        ListNode fast = head;
         ListNode slow = head;
-        //快慢指针找中点 分别奇偶
-        while (true) {
+        ListNode fast = head;
+        boolean isOdd = false;
+        while (fast != null) {
             if (fast.next != null) {
                 if (fast.next.next != null) {
                     fast = fast.next.next;
                     slow = slow.next;
                 } else {
                     fast = fast.next;
-                    isOdd = false;
+                    slow = slow.next;
                     break;
                 }
             } else {
@@ -22,47 +21,31 @@ public class Solution {
             }
         }
         if (isOdd) {
-            //奇数
-            ListNode pre = null;
-            ListNode next = null;
-            ListNode cur = slow.next;
-            while (cur != null) {
-                next = cur.next;
-                cur.next = pre;
-                pre = cur;
-                cur = next;
-            }
-            ListNode left = head;
-            ListNode right = pre;
-            while (right != null) {
-                if (left.val != right.val) {
-                    return false;
-                }
-                left = left.next;
-                right = right.next;
-            }
+            fast = reverse(slow.next);
         } else {
-            //偶数
-            ListNode pre = null;
-            ListNode next = null;
-            ListNode cur = slow.next;
-            while (cur != null) {
-                next = cur.next;
-                cur.next = pre;
-                pre = cur;
-                cur = next;
+            fast = reverse(slow);
+        }
+        slow = head;
+        while (fast != null) {
+            if (fast.val != slow.val) {
+                return false;
             }
-            ListNode left = head;
-            ListNode right = pre;
-            while (right != null) {
-                if (left.val != right.val) {
-                    return false;
-                }
-                left = left.next;
-                right = right.next;
-            }
+            slow = slow.next;
+            fast = fast.next;
         }
         return true;
+    }
+
+    public ListNode reverse(ListNode head) {
+        ListNode pre = null;
+        ListNode cur = head;
+        while (cur != null) {
+            ListNode t = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = t;
+        }
+        return pre;
     }
 }
 
