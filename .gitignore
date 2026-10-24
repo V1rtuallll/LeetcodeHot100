@@ -8,3 +8,8 @@
 /dataSources.local.xml
 # 基于编辑器的 HTTP 客户端请求
 /httpRequests/
+# macOS 系统文件
+.DS_Store
+# Java 编译产物
+*.class
+/out/

@@ -1,6 +1,27 @@
 {
-  "java.project.sourcePaths": [
-    "."
+  "java.jdt.ls.java.home": "/Users/v1rtual/.sdkman/candidates/java/21.0.11-tem",
+  "java.configuration.runtimes": [
+    {
+      "name": "JavaSE-21",
+      "path": "/Users/v1rtual/.sdkman/candidates/java/21.0.11-tem",
+      "default": true
+    }
   ],
-  "java.project.referencedLibraries": []
+  "java.project.sourcePaths": [
+    "src/first",
+    "src/second",
+    "src/third"
+  ],
+  "java.project.referencedLibraries": [],
+  "files.eol": "\n",
+  "editor.inlineSuggest.enabled": false,
+  "github.copilot.enable": {
+    "*": false
+  },
+  "github.copilot.inlineSuggest.enable": false,
+  "QoderCN.cloudModelEnable": false,
+  "QoderCN.cloudModelAutoTriggerDisplayRule": false,
+  "QoderCN.cloudModelAutoTriggerGenerateLength": "disable",
+  "QoderCN.localMachineModel": false,
+  "QoderCN.methodQuickOperation": false
 }
